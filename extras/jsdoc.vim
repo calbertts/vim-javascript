@@ -12,6 +12,9 @@ syntax match  jsDocTags         contained "@\(lends\|see\|tutorial\)\>" skipwhit
 " other tags (no extra syntax)
 syntax match  jsDocTags         contained "@\(abstract\|access\|accessor\|async\|author\|classdesc\|constant\|const\|constructor\|copyright\|deprecated\|desc\|description\|dict\|event\|example\|file\|file[oO]verview\|final\|function\|global\|ignore\|inherit[dD]oc\|inner\|instance\|interface\|license\|localdoc\|method\|mixin\|nosideeffects\|override\|overview\|preserve\|private\|protected\|public\|readonly\|since\|static\|struct\|todo\|summary\|undocumented\|virtual\)\>"
 
+" http tags containing a param
+syntax match  jsDocTags         contained "@\(path\|auth\|header\|body\|params\|query\|response\|code\|service\|chain\)\>" skipwhite nextgroup=jsDocParam
+
 syntax region jsDocType         contained matchgroup=jsDocTypeBrackets start="{" end="}" contains=jsDocTypeRecord oneline skipwhite nextgroup=jsDocParam
 syntax match  jsDocType         contained "\%(#\|\"\|\w\|\.\|:\|\/\)\+" skipwhite nextgroup=jsDocParam
 syntax region jsDocTypeRecord   contained start=/{/ end=/}/ contains=jsDocTypeRecord extend
